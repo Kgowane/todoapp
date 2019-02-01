@@ -1,0 +1,32 @@
+<p style="font-size:18px"><%= link_to 'Lists', lists_path %></p>
+
+<h1 style="color:green">Completed Tasks</h1>
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Status</th>
+    </tr>
+
+    <% Task.done.each do |task| %>
+      <tr>
+        <td><%= task.task %></td>
+        <td><%= task.status %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<h1 style="color:red">Completed Tasks</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Status</th>
+  </tr>
+
+  <% Task.not_done.each do |task| %>
+    <tr>
+      <td><%= task.task %></td>
+      <td><%= task.status %></td>
+    </tr>
+  <% end %>
+</table>

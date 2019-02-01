@@ -1,0 +1,25 @@
+<h1 style="color:green">List Item</h1>
+
+<p>
+ <strong>Title: </strong>
+ <%= @list.title %>
+</p>
+
+<%= link_to 'View All Lists', lists_path %>
+
+<%= render @list.tasks %>
+
+<h2>Add a task:</h2>
+<%= form_with(model: [ @list, @list.tasks.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :task %><br>
+    <%= form.text_field :task %>
+  </p>
+  <p>
+    <%= form.label :status %><br>
+    <%= form.check_box :status %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
